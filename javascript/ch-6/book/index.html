@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Shelf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .success, .error {
+            color: white;
+            padding: 5px;
+            margin: 5px 0 15px 0;
+        }
+
+        .success {
+            background-color: green;
+        }
+
+        .error {
+            background-color: red;
+        }
+        
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Add Book</h1>
+        <form id="book-form">
+            <div>
+                <label for="title">Title <span class="required">*</span></label>
+                <input type="text" name="title" id="title" placeholder="The Giver" class="u-full-width">
+            </div>
+            <div>
+                <label for="author">Author <span class="required">*</span></label>
+                <input type="text" name="author" id="author" placeholder="Lois Lowry" class="u-full-width">
+            </div>
+            <div>
+                <label for="isbn">ISBN <span class="required">*</span></label>
+                <input type="text" name="isbn" id="isbn" placeholder="89122" class="u-full-width">
+            </div>
+            <div>
+                <input type="submit" value="Submit" class="u-full-width">
+            </div>
+        </form>
+        <div class="result-message">
+            <p class="message"></p>
+        </div>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
