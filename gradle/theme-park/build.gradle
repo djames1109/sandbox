@@ -1,0 +1,34 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'base'
+}
+
+//defaultTasks 'generateDescriptions'
+
+tasks.register('generateDescriptions', Copy) {
+	group 'Theme Park'
+	description 'Generates descriptions with token substitution'
+	from 'descriptions'
+	into "$buildDir/descriptions"
+	filter(ReplaceTokens, tokens: [THEME_PARK_NAME: "Grelephant's Wonder World"])
+}
+
+tasks.register('zipDescriptions', Zip) {
+	group 'Theme Park'
+	description 'Zip generated descriptions'
+	archiveFileName = "ThemePark.zip"
+	destinationDirectory = layout.buildDirectory.dir('descriptions');
+
+	from "$buildDir/descriptions"
+}
+
+tasks.register('sayHello') {
+	group 'Theme Park'
+	description 'Just Say Hello!!!'
+
+	doLast {
+		println 'Hello!!!'
+	}
+}
+
